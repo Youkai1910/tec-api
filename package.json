@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "api-alunos",
+  "version": "1.0.0",
+  "description": "API utilizando nodeJS, express e banco de dados MySQL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youkai1910/tec-api.git"
+  },
+  "author": "Alexandre Guedes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youkai1910/tec-api/issues"
+  },
+  "homepage": "https://github.com/Youkai1910/tec-api#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
