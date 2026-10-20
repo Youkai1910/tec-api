@@ -31,12 +31,31 @@ function inserir(aluno, res){
 
     conexao.query(sql, aluno, (erro) => {
         if(erro){
+            console.error(`Erro MYSQL ${erro}`)
             res.status(400).json(erro.code);
+        } 
+        // além de responder com status 201, adicionamos uma mensagem amigavel para que o usuário foi inserido no banco de dados 
+        res.status(201).json({"status" : "aluno inserido"});
+        
+    })
+}
+
+//Exibindo UM aluno
+function lerUm(id, res){
+    const sql = "SELECT * FROM alunos WHERE id= ?";
+
+    conexao.query(sql, id, (erro, resultados)=> {
+        //checando se existe conteúdo
+        if(resultados.length === 0){
+            res.status(204).res.end();
+            return;
+        }
+        if(erro){
+            res.status(400).json(erro.code)
         } else {
-            // além de responder com status 201, adicionamos uma mensagem amigavel para que o usuário foi inserido no banco de dados 
-            res.status(201).json({"status" : "aluno inserido"});
+            res.status(200).json(resultados[0]);
         }
     })
 }
 
-export {ler, inserir};
+export {ler, inserir, lerUm};
