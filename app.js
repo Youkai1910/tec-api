@@ -1,8 +1,13 @@
+'use strict';
 //importando o express (instalado via terminal)
 import express from 'express';
+import{ler} from './src/aluno.js';
 const app = express();
 const porta = 3000;
- 
+ //habilitando o express para trabalhar com formato JSON
+app.use(express.json());
+//habilitando o express para trabalhar com formato url encoded (formulario)
+app.use(express.urlencoded({extended : true}));
 /* ROTAS*/
 // Configurando rota para  o início da aplicação
 app.get('/', function(req, res) {
@@ -11,7 +16,8 @@ app.get('/', function(req, res) {
 });
 //ROTA visualizar todos os alunos
 app.get('/alunos',(req, res) => {
-     res.send(`Dados de todos os alunos`);
+     //res.send(`Dados de todos os alunos`);
+     ler(res);
 });
 //ROTA para visualizar UM aluno
 app.get('/alunos/:id', (req, res) => {

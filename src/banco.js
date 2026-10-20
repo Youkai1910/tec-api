@@ -2,7 +2,7 @@
 
 import mysql2 from 'mysql2';
 
-const cnexao = mysql2.createConnection({
+const conexao = mysql2.createConnection({
     host : 'localhost',
     user : 'root',
     password : 'senacpenha',
