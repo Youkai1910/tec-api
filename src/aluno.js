@@ -23,4 +23,20 @@ function ler(res){
     })
 }
 
-export {ler};
+// INSERINDO alunos no banco de dados 
+function inserir(aluno, res){
+    // O MYSQL2 com o "SET ?" faz com que o mysql 
+    //entenda que todos os dados recebidos serão atribuidos na ordem enviada, aos campos da tabela alunos.
+    const sql = "INSERT INTO alunos SET ?"; 
+
+    conexao.query(sql, aluno, (erro) => {
+        if(erro){
+            res.status(400).json(erro.code);
+        } else {
+            // além de responder com status 201, adicionamos uma mensagem amigavel para que o usuário foi inserido no banco de dados 
+            res.status(201).json({"status" : "aluno inserido"});
+        }
+    })
+}
+
+export {ler, inserir};
