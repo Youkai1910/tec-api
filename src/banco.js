@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import mysql2 from 'mysql2';
 
