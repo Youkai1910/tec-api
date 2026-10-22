@@ -1,7 +1,7 @@
 'use strict';
 //importando o express (instalado via terminal)
 import express from 'express';
-import{ler, inserir, lerUm} from './src/aluno.js';
+import{ler, inserir, lerUm, atualizar} from './src/aluno.js';
 const app = express();
 const porta = 3000;
  //habilitando o express para trabalhar com formato JSON
@@ -42,7 +42,10 @@ app.put('/alunos/:id', (req, res) => {
 });
 // rota para atualizar alguns  dos dados de um aluno
 app.patch('/alunos/:id', (req, res) => {
-    res.send('Atualizando alguns dados ');
+    //res.send('Atualizando alguns dados ');
+    const id = parseInt(req.params.id);
+    const aluno = req.body;
+    atualizar(id, aluno, res);
 });
 // rota para deletar um aluno
 app.delete('/alunos/:id', (req, res) => {

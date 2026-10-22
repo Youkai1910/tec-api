@@ -58,4 +58,19 @@ function lerUm(id, res){
     })
 }
 
-export {ler, inserir, lerUm};
+// atualizar dados do aluno
+function atualizar(id, aluno, res) {
+   const sql = "UPDATE alunos SET ? WHERE id = ?";
+    // como estamos passando 2 parâmetros - pela 1ª vez - precisa ser dentro de uma
+   //array. A ordem importa, precisamos respeitar a ordem da linha sql acima.
+
+   conexao.query(sql,[aluno, id], (erro, resultados) => {
+        if (erro) {
+            res.status(400).json(erro.code);
+        } else {
+            res.status(200).json({"status" : "aluno atualizado com sucesso"});
+        }
+   })
+}
+
+export {ler, inserir, lerUm, atualizar};
