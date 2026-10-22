@@ -49,7 +49,9 @@ app.patch('/alunos/:id', (req, res) => {
 });
 // rota para deletar um aluno
 app.delete('/alunos/:id', (req, res) => {
-    res.send('Deletando um aluno');
+    //res.send('Deletando um aluno');
+    const id = parseInt(req.params.id);
+    excluir(id, res);
 })
 /* SERVIDOR */
 app.listen(porta, () => {
