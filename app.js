@@ -14,7 +14,8 @@ app.use(cors());
 /* ROTAS*/
 // Configurando rota para  o início da aplicação
 app.get('/', function(req, res) {
-    res.send('API de alunos com nodeJ, express e MySQL');
+    //res.redirect('https://youkai1910-3949031.postman.co/documentation/59142754-5135e6e5-fc2d-4cda-bd4e-4dd9c3be0b22/publish?workspaceId=bdffaa34-13b9-4752-844b-fe33f5ce8965&authFlowId=9f5ebe33-d23f-44e5-8fb0-67f3b2e2f6d4&_pmt=pmMTc5MjY3OTIwMzY4NQ%253D%253D%257CPM.MjAyNi0xMC0yMlQxNDoyNjo0My42ODVa');
+    res.send('API de alunos com nodeJS, express e MySQL');
        
 });
 //ROTA visualizar todos os alunos
